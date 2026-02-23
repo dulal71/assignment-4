@@ -3,6 +3,12 @@ const totalJob = document.getElementById("all-job");
 const childNode = totalJob.children.length;
 const totalCount = document.getElementById("total");
 totalCount.innerText = childNode;
+
+//total Interview job
+
+
+const totalInterview = document.getElementById("total-interview");
+
 // available-job
 
 const availableJob = document.getElementById("available-job");
@@ -59,3 +65,35 @@ allJob.classList.add("hidden");
 }
  
 }
+
+
+
+// create Object
+let interviewList=[];
+allJob.addEventListener("click" ,function(event){
+  const parentNode = event.target.parentNode.parentNode.parentNode;
+ 
+  const jobName = parentNode.querySelector(".job-name").innerText;
+  const duty =parentNode.querySelector(".duty").innerText;
+  const salary =parentNode.querySelector(".salary").innerText;
+  const condition =parentNode.querySelector(".condition").innerText;
+  const postion =parentNode.querySelector(".postion").innerText;
+  
+  const jobInfo={
+    jobName,
+    duty,
+    salary,
+    condition,
+    postion
+  }
+  
+const jobExist = interviewList.find(job=> job.jobName=== jobInfo.jobName);
+if(!jobExist){
+  interviewList.push(jobInfo);  
+}
+totalInterview.innerText=interviewList.length;
+
+})
+
+
+
