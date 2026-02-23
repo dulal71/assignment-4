@@ -79,7 +79,7 @@ const parentNode = event.target.parentNode.parentNode.parentNode;
   const salary =parentNode.querySelector(".salary").innerText;
   const condition =parentNode.querySelector(".condition").innerText;
   const position =parentNode.querySelector(".position").innerText;
-  
+ parentNode.querySelector(".condition").innerText = 'Interview'; 
   // object
   const jobInfo={
     jobName,
@@ -102,6 +102,7 @@ reminderInterview();
   const salary =parentNode.querySelector(".salary").innerText;
   const condition =parentNode.querySelector(".condition").innerText;
   const position =parentNode.querySelector(".position").innerText;
+   parentNode.querySelector(".condition").innerText = 'Rejected';
   
   // object
   const jobInfo={
@@ -137,13 +138,13 @@ reminderRejected();
     div.innerHTML=`
     <div class="job-contant space-y-4 ">
     <div>
-        <h3 class="job-name font-bold text-xl">TechCorp Industries</h3>
-<p class="duty text-[#64748B]">Senior Frontend Developer</p>
+        <h3 class="job-name font-bold text-xl">${job.jobName}</h3>
+<p class="duty text-[#64748B]">${job.duty}</p>
 </div>
 
-<p  class="salary text-[#64748B]">San Francisco, CA • Full-time •$130,000 - $175,000</p>
+<p  class="salary text-[#64748B]">${job.salary}</p>
 <p id="status"class="condition bg-gray-200 inline-block px-2 py-1">Not Applied</p>
-<p class="postion text-gray-600">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
+<p class="postion text-gray-600">${job.position}</p>
 <div class="flex gap-2">
 <button id="interview-btn" class="btn-interview-selected btn btn-dash btn-success">Interview</button>
 <button id="iejected-btn"  class="btn btn-dash btn-error">Rejected</button>
@@ -165,13 +166,13 @@ reminderRejected();
     div.innerHTML=`
     <div class="job-contant space-y-4 ">
     <div>
-        <h3 class="job-name font-bold text-xl">TechCorp Industries</h3>
-<p class="duty text-[#64748B]">Senior Frontend Developer</p>
+        <h3 class="job-name font-bold text-xl">${job.jobName}</h3>
+<p class="duty text-[#64748B]">${job.duty}</p>
 </div>
 
-<p  class="salary text-[#64748B]">San Francisco, CA • Full-time •$130,000 - $175,000</p>
+<p  class="salary text-[#64748B]">${job.salary}</p>
 <p id="status"class="condition bg-gray-200 inline-block px-2 py-1">Not Applied</p>
-<p class="postion text-gray-600">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
+<p class="postion text-gray-600">${job.position}</p>
 <div class="flex gap-2">
 <button id="interview-btn" class="btn-interview-selected btn btn-dash btn-success">Interview</button>
 <button id="iejected-btn"  class="btn btn-dash btn-error">Rejected</button>
