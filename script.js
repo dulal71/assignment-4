@@ -11,16 +11,20 @@ const interviewJob = document.getElementById("interview-job");
 const totalCount = document.getElementById("total");
 const totalInterview = document.getElementById("total-interview");
  const totalreject = document.getElementById("total-rejected");
+ 
 function calculateCount(){
 totalCount.innerText=allJob.children.length;
 totalInterview.innerText=interviewList.length;
  totalreject.innerText=rejectList.length;
+ 
 }
 
  calculateCount();
 
 
 
+// const avilableJob= document.getElementById("available-job");
+// avilableJob.innerText=allJob.children.length;
 
 
 
@@ -59,6 +63,14 @@ reminderInterview();
   interviewJob.classList.remove("hidden");
 allJob.classList.add("hidden");
 //  rejectedJob.classList.remove("hidden");
+// const div =document.createElement("div");
+// const p = document.createElement("p");
+// p.className='text-[#64748B]';
+// p.innerHTML=`
+// <span >${rejectList.length}of ${totalCount.innerText} jobs </span>   
+// `;
+// avilableJob.appendChild(p);
+
  reminderRejected();
 
 }else if(id === "all-btn"){
@@ -109,6 +121,7 @@ calculateCount();
 
 
 
+
  }else if(event.target.classList.contains("btn-rejected-selected")){
      interviewJob.innerHTML=``;
    const parentNode = event.target.parentNode.parentNode.parentNode;
@@ -132,6 +145,7 @@ calculateCount();
 const jobExist =  rejectList.find(job=> job.jobName === jobInfo.jobName);
 if(!jobExist){
    rejectList.push(jobInfo);  
+  
    
 }
 interviewList =interviewList.filter(job=> job.jobName != jobInfo.jobName);
@@ -155,6 +169,7 @@ calculateCount();
   
   for(const job of interviewList ){
     // console.log("job",job)
+   
     const div = document.createElement("div");
     div.className = 'bg-base-100 p-4 flex justify-between shadow';
     div.innerHTML=`
@@ -172,9 +187,12 @@ calculateCount();
 <button id="rejected-btn"  class="btn-rejected-selected btn btn-dash btn-error">Rejected</button>
 </div>
 </div>
-<button id="delete-btn" class="w-8 h-8 flex rounded-full border border-gray-200 text-[#64748B] p-2"><i class="fa-regular fa-trash-can"></i></button>
+<button class="delete-btn w-8 h-8 flex rounded-full border border-gray-200 text-[#64748B] p-2"><i class="fa-regular fa-trash-can"></i></button>
    `
+
+
    interviewJob.appendChild(div);
+  
   }
 
 
@@ -199,12 +217,21 @@ calculateCount();
 <button id="rejected-btn"  class="btn-rejected-selected btn btn-dash btn-error">Rejected</button>
 </div>
 </div>
-<button id="delete-btn" class="w-8 h-8 flex rounded-full border border-gray-200 text-[#64748B] p-2"><i class="fa-regular fa-trash-can"></i></button>
+<button class="delete-btn w-8 h-8 flex rounded-full border border-gray-200 text-[#64748B] p-2"><i class="fa-regular fa-trash-can"></i></button>
    `
    interviewJob.appendChild(div);
   } 
 
  }
 
+
+allJob.addEventListener("click",function(event){
+  if(event.target.classList.contains('delete-btn')){
+    const parent = event.target.parentNode;
+    console.log(parent);
+    parent.remove();
+    calculateCount();
+  }
+})
 
 
