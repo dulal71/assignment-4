@@ -1,3 +1,6 @@
+
+
+
 // total count job
 const totalJob = document.getElementById("all-job");
 const childNode = totalJob.children.length;
@@ -18,6 +21,7 @@ availableJob.innerText = childNode;
 const allJob = document.getElementById('all-job');
 const interviewJob = document.getElementById('interview-job');
 const rejectedJob = document.getElementById("rejected-job");
+
 
 
 
@@ -44,6 +48,7 @@ function toggleBtn(id){
   rejectFilterBtn.classList.add("bg-white","text-gray-600");
 // selcted the click btn
 const selcted = document.getElementById(id);
+currentStatus= id;
 selcted.classList.remove("bg-white","text-gray-600");
 selcted.classList.add("bg-primary","text-white");
 
@@ -57,6 +62,7 @@ allJob.classList.add("hidden");
   interviewJob.classList.add("hidden");
 allJob.classList.add("hidden");
  rejectedJob.classList.remove("hidden");
+
 }else{
    rejectedJob.classList.add("hidden");
     interviewJob.classList.add("hidden");
@@ -71,7 +77,7 @@ allJob.classList.add("hidden");
 // create Object
 let interviewList=[];
 let rejectList=[];
-allJob.addEventListener("click" ,function(event){
+mainContainer.addEventListener("click" ,function(event){
   if(event.target.classList.contains("btn-interview-selected")){
 const parentNode = event.target.parentNode.parentNode.parentNode;
  const jobName = parentNode.querySelector(".job-name").innerText;
@@ -79,23 +85,27 @@ const parentNode = event.target.parentNode.parentNode.parentNode;
   const salary =parentNode.querySelector(".salary").innerText;
   const condition =parentNode.querySelector(".condition").innerText;
   const position =parentNode.querySelector(".position").innerText;
- parentNode.querySelector(".condition").innerText = 'Interview'; 
+  parentNode.querySelector(".condition").innerText = 'Interview'; 
   // object
   const jobInfo={
     jobName,
     duty,
     salary,
-    condition,
+    condition :'Interview',
     position
   }
   
-const jobExist =  interviewList.find(job=> job.jobName=== jobInfo.jobName);
+const jobExist =  interviewList.find(job => job.jobName=== jobInfo.jobName);
 if(!jobExist){
  interviewList.push(jobInfo);  
 }
+
 totalInterview.innerText=interviewList.length;
 reminderInterview();
-  }else if(event.target.classList.contains("btn-rejected-selected")){
+
+
+
+ }else if(event.target.classList.contains("btn-rejected-selected")){
    const parentNode = event.target.parentNode.parentNode.parentNode;
  const jobName = parentNode.querySelector(".job-name").innerText;
   const duty =parentNode.querySelector(".duty").innerText;
@@ -109,7 +119,7 @@ reminderInterview();
     jobName,
     duty,
     salary,
-    condition,
+    condition :'Rejected',
     position
   }
   
@@ -117,8 +127,10 @@ const jobExist =  rejectList.find(job=> job.jobName=== jobInfo.jobName);
 if(!jobExist){
    rejectList.push(jobInfo);  
 }
+
 totalreject.innerText= rejectList.length;
 reminderRejected();
+
   }
   
 })
@@ -130,7 +142,7 @@ reminderRejected();
 
 
  function reminderInterview(){
-  interviewJob.innerHTML=``;
+  //  interviewJob.innerHTML=``;
   for(const job of interviewList ){
     // console.log("job",job)
     const div = document.createElement("div");
@@ -143,7 +155,7 @@ reminderRejected();
 </div>
 
 <p  class="salary text-[#64748B]">${job.salary}</p>
-<p id="status"class="condition bg-gray-200 inline-block px-2 py-1">Not Applied</p>
+<p id="status"class="condition bg-gray-200 inline-block px-2 py-1">${job.condition}</p>
 <p class="postion text-gray-600">${job.position}</p>
 <div class="flex gap-2">
 <button id="interview-btn" class="btn-interview-selected btn btn-dash btn-success">Interview</button>
@@ -158,7 +170,7 @@ reminderRejected();
 
  }
  function reminderRejected(){
-  rejectedJob.innerHTML=``;
+  //  rejectedJob.innerHTML=``;
   for(const job of rejectList ){
     // console.log("job",job)
     const div = document.createElement("div");
@@ -171,7 +183,7 @@ reminderRejected();
 </div>
 
 <p  class="salary text-[#64748B]">${job.salary}</p>
-<p id="status"class="condition bg-gray-200 inline-block px-2 py-1">Not Applied</p>
+<p id="status"class="condition bg-gray-200 inline-block px-2 py-1">${job.condition}</p>
 <p class="postion text-gray-600">${job.position}</p>
 <div class="flex gap-2">
 <button id="interview-btn" class="btn-interview-selected btn btn-dash btn-success">Interview</button>
