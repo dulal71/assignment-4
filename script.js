@@ -77,7 +77,7 @@ allJob.classList.add("hidden");
 // create Object
 let interviewList=[];
 let rejectList=[];
-mainContainer.addEventListener("click" ,function(event){
+allJob.addEventListener("click" ,function(event){
   if(event.target.classList.contains("btn-interview-selected")){
 const parentNode = event.target.parentNode.parentNode.parentNode;
  const jobName = parentNode.querySelector(".job-name").innerText;
@@ -142,7 +142,7 @@ reminderRejected();
 
 
  function reminderInterview(){
-  //  interviewJob.innerHTML=``;
+    interviewJob.innerHTML=``;
   for(const job of interviewList ){
     // console.log("job",job)
     const div = document.createElement("div");
@@ -170,7 +170,7 @@ reminderRejected();
 
  }
  function reminderRejected(){
-  //  rejectedJob.innerHTML=``;
+    rejectedJob.innerHTML=``;
   for(const job of rejectList ){
     // console.log("job",job)
     const div = document.createElement("div");
