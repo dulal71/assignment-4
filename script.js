@@ -22,7 +22,8 @@ totalInterview.innerText=interviewList.length;
  calculateCount();
 
 
-
+const totalAvailable = document.getElementById("total-available");
+totalAvailable.innerText = allJob.children.length;
 
 
 
@@ -50,25 +51,27 @@ const selected = document.getElementById(id);
 currentStatus= id;
 selected.classList.remove("bg-white","text-gray-600");
 selected.classList.add("bg-primary","text-white");
+//  <!-- <p class="text-[#64748B]"><span id="total-available">0</span> jobs</p> -->
 
 
 if(id === "interview-filter-btn"){
   interviewJob.classList.remove("hidden");
 allJob.classList.add("hidden");
-
+ totalAvailable.textContent = `${interviewList.length} of ${totalCount.innerText}`;
 reminderInterview();
 }else if(id === "rejected-filter-btn"){
   interviewJob.classList.remove("hidden");
 allJob.classList.add("hidden");
-
+totalAvailable.textContent = `${rejectList.length} of ${totalCount.innerText}`;
 
 reminderRejected();
 
-}else if(id === "all-btn"){
+}else if(id==="all-btn"){
   //  rejectedJob.classList.add("hidden");
     interviewJob.classList.add("hidden");
     allJob.classList.remove("hidden");
-
+   
+ 
 }
  
 }
@@ -229,11 +232,3 @@ allJob.addEventListener("click",function(event){
     calculateCount();
   }
 })
-
-
-
-
-
-
-
-
