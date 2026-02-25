@@ -23,8 +23,6 @@ totalInterview.innerText=interviewList.length;
 
 
 
-// const avilableJob= document.getElementById("available-job");
-// avilableJob.innerText=allJob.children.length;
 
 
 
@@ -57,21 +55,14 @@ selected.classList.add("bg-primary","text-white");
 if(id === "interview-filter-btn"){
   interviewJob.classList.remove("hidden");
 allJob.classList.add("hidden");
-//  rejectedJob.classList.add("hidden");
+
 reminderInterview();
 }else if(id === "rejected-filter-btn"){
   interviewJob.classList.remove("hidden");
 allJob.classList.add("hidden");
-//  rejectedJob.classList.remove("hidden");
-// const div =document.createElement("div");
-// const p = document.createElement("p");
-// p.className='text-[#64748B]';
-// p.innerHTML=`
-// <span >${rejectList.length}of ${totalCount.innerText} jobs </span>   
-// `;
-// avilableJob.appendChild(p);
 
- reminderRejected();
+
+reminderRejected();
 
 }else if(id === "all-btn"){
   //  rejectedJob.classList.add("hidden");
@@ -89,7 +80,7 @@ allJob.classList.add("hidden");
 mainContainer.addEventListener("click" ,function(event){
  
   if(event.target.classList.contains("btn-interview-selected")){
-     interviewJob.innerHTML=``;
+    //  interviewJob.innerHTML=``;
 const parentNode = event.target.parentNode.parentNode.parentNode;
 console.log(parentNode);
  const jobName = parentNode.querySelector(".job-name").innerText;
@@ -112,18 +103,22 @@ if(!jobExist){
  interviewList.push(jobInfo);  
 
 }
+
+  
 rejectList = rejectList.filter(job=> job.jobName != jobInfo.jobName)
 if(currentStatus ==='rejected-filter-btn'){
   reminderRejected();
 }
 
 calculateCount();
-
-
-
+if(interviewList.length!==0){
+   empty.classList.add("hidden");
+   console.log(interviewList.length);
+  }
+ 
 
  }else if(event.target.classList.contains("btn-rejected-selected")){
-     interviewJob.innerHTML=``;
+    //  interviewJob.innerHTML=``;
    const parentNode = event.target.parentNode.parentNode.parentNode;
    console.log(parentNode);
    const jobName = parentNode.querySelector(".job-name").innerText;
@@ -146,6 +141,7 @@ const jobExist =  rejectList.find(job=> job.jobName === jobInfo.jobName);
 if(!jobExist){
    rejectList.push(jobInfo);  
   
+
    
 }
 interviewList =interviewList.filter(job=> job.jobName != jobInfo.jobName);
@@ -153,7 +149,9 @@ if(currentStatus ==='interview-filter-btn'){
 reminderInterview();
 }
 calculateCount();
-
+if(rejectList.length!==0){
+   empty.classList.add("hidden");
+  }
 
   }
   
@@ -189,9 +187,7 @@ calculateCount();
 </div>
 <button class="delete-btn w-8 h-8 flex rounded-full border border-gray-200 text-[#64748B] p-2"><i class="fa-regular fa-trash-can"></i></button>
    `
-
-
-   interviewJob.appendChild(div);
+interviewJob.appendChild(div);
   
   }
 
@@ -233,5 +229,17 @@ allJob.addEventListener("click",function(event){
     calculateCount();
   }
 })
+
+
+
+// const available =document.createElement("div");
+//  available.className='flex justify-between items-center';
+//   available.innerHTML=`
+// <h2 class="text-[#002C5C] font-bold text-2xl">Available Jobs</h2>
+//          <p class="text-[#64748B]"><span>${rejectList.length} of ${totalCount.innerText}</span> jobs</p>
+ 
+//   `;
+
+
 
 
