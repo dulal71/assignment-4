@@ -80,7 +80,7 @@ reminderRejected();
 mainContainer.addEventListener("click" ,function(event){
  
   if(event.target.classList.contains("btn-interview-selected")){
-    //  interviewJob.innerHTML=``;
+      interviewJob.innerHTML=``;
 const parentNode = event.target.parentNode.parentNode.parentNode;
 console.log(parentNode);
  const jobName = parentNode.querySelector(".job-name").innerText;
@@ -118,7 +118,7 @@ if(interviewList.length!==0){
  
 
  }else if(event.target.classList.contains("btn-rejected-selected")){
-    //  interviewJob.innerHTML=``;
+      interviewJob.innerHTML=``;
    const parentNode = event.target.parentNode.parentNode.parentNode;
    console.log(parentNode);
    const jobName = parentNode.querySelector(".job-name").innerText;
@@ -232,13 +232,7 @@ allJob.addEventListener("click",function(event){
 
 
 
-// const available =document.createElement("div");
-//  available.className='flex justify-between items-center';
-//   available.innerHTML=`
-// <h2 class="text-[#002C5C] font-bold text-2xl">Available Jobs</h2>
-//          <p class="text-[#64748B]"><span>${rejectList.length} of ${totalCount.innerText}</span> jobs</p>
- 
-//   `;
+
 
 
 
