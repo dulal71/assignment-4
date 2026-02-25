@@ -49,15 +49,15 @@
 </section>
 
 <section class="max-w-6xl mt-6 mx-auto gap-3 flex p-5 md:px-0">
-    <button  onclick="toggleBtn('all-btn')" id="all-btn" class="btn bg-primary btn-soft text-white">All</button>
-    <button onclick="toggleBtn('interview-filter-btn')" id="interview-filter-btn" class="btn btn-soft bg-white text-gray-600">Interview</button>
-    <button  onclick="toggleBtn('rejected-filter-btn')" id="rejected-filter-btn" class="btn btn-soft bg-white  text-gray-600">Rejected</button>
+    <button  onclick="toggleBtn('all')" id="all-btn" class="btn btn-soft bg-white text-gray-600">All</button>
+    <button onclick="toggleBtn('interview')" id="interview-btn" class="btn  btn-soft bg-white text-gray-600">Interview</button>
+    <button  onclick="toggleBtn('rejected')" id="rejected-btn" class="btn btn-soft bg-white text-gray-600">Rejected</button>
 </section>
 
 <!-- job-section -->
- <section id="all-job" class="max-w-6xl my-6 mx-auto space-y-4 p-5 md:px-0">
-<!-- job-1 -->
-<div class="bg-base-100 p-4 flex justify-between shadow">
+  <section id="all-job" class="max-w-6xl my-6 mx-auto space-y-4 p-5 md:px-0">
+<!-- job-1  -->
+ <div class="bg-base-100 p-4 flex justify-between shadow">
 <div class="job-contant space-y-4 ">
     <div>
         <h3 class="job-name font-bold text-xl">Mobile First Corp</h3>
@@ -68,14 +68,14 @@
 <p id="status"class="condition bg-gray-200 inline-block px-2 py-1">Not Applied</p>
 <p class="post text-gray-600">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
 <div class="flex gap-2">
-<button id="interview-btn" class="btn-interview-selected btn btn-dash btn-success">Interview</button>
-<button id="rejected-btn"  class="btn-rejected-selected btn btn-dash btn-error">Rejected</button>
+<button  class="btn-interview-selected btn btn-dash btn-success">Interview</button>
+<button   class="btn-rejected-selected btn btn-dash btn-error">Rejected</button>
 </div>
 </div>
 <button  class="delete-btn w-8 h-8 flex rounded-full border border-gray-200 text-[#64748B] p-2"><i class="fa-regular fa-trash-can"></i></button>
 </div>
 <!-- job-2 -->
-<div class="bg-base-100 p-4 flex justify-between shadow">
+<!-- <div class="bg-base-100 p-4 flex justify-between shadow">
 <div class="job-contant space-y-4 ">
     <div>
         <h3 class="job-name font-bold text-xl">WebFlow Agency</h3>
@@ -91,9 +91,9 @@
 </div>
 </div>
 <button  class="delete-btn w-8 h-8 flex rounded-full border border-gray-200 text-[#64748B] p-2"><i class="fa-regular fa-trash-can"></i></button>
-</div>
+</div> -->
 <!-- job-3 -->
-<div class="bg-base-100 p-4 flex justify-between shadow">
+<!-- <div class="bg-base-100 p-4 flex justify-between shadow">
 <div class="job-contant space-y-4 ">
     <div>
         <h3 class="job-name font-bold text-xl">DataViz Solutions</h3>
@@ -110,9 +110,9 @@
 </div>
 </div>
 <button class="delete-btn w-8 h-8 flex rounded-full border border-gray-200 text-[#64748B] p-2"><i class="fa-regular fa-trash-can"></i></button>
-</div>
+</div> -->
 <!-- job-4 -->
-<div class="bg-base-100 p-4 flex justify-between shadow">
+<!-- <div class="bg-base-100 p-4 flex justify-between shadow">
 <div class="job-contant space-y-4 ">
     <div>
         <h3 class="job-name font-bold text-xl">CloudFirst Inc</h3>
@@ -128,9 +128,9 @@
 </div>
 </div>
 <button  class="delete-btn w-8 h-8 flex rounded-full border border-gray-200 text-[#64748B] p-2"><i class="fa-regular fa-trash-can"></i></button>
-</div>
+</div> -->
 <!-- job-5 -->
-<div class="bg-base-100 p-4 flex justify-between shadow">
+<!-- <div class="bg-base-100 p-4 flex justify-between shadow">
 <div class="job-contant space-y-4 ">
     <div>
         <h3 class="job-name font-bold text-xl">Innovation Labs</h3>
@@ -146,9 +146,9 @@
 </div>
 </div>
 <button class="delete-btn w-8 h-8 flex rounded-full border border-gray-200 text-[#64748B] p-2"><i class="fa-regular fa-trash-can"></i></button>
-</div>
+</div> -->
 <!-- job-6 -->
-<div class="bg-base-100 p-4 flex justify-between shadow">
+<!-- <div class="bg-base-100 p-4 flex justify-between shadow">
 <div class="job-contant space-y-4 ">
     <div>
         <h3 class="job-name font-bold text-xl">MegaCorp Solutions</h3>
@@ -164,9 +164,9 @@
 </div>
 </div>
 <button class="delete-btn w-8 h-8 flex rounded-full border border-gray-200 text-[#64748B] p-2"><i class="fa-regular fa-trash-can"></i></button>
-</div>
+</div> -->
 <!-- job-7 -->
-<div class="bg-base-100 p-4 flex justify-between shadow">
+<!-- <div class="bg-base-100 p-4 flex justify-between shadow">
 <div class="job-contant space-y-4 ">
     <div>
         <h3 class="job-name font-bold text-xl">StartupXYZ</h3>
@@ -181,9 +181,9 @@
 </div>
 </div>
 <button class="delete-btn w-8 h-8 flex rounded-full border border-gray-200 text-[#64748B] p-2"><i class="fa-regular fa-trash-can"></i></button>
-</div>
+</div> -->
 <!-- job-8 -->
-<div class="bg-base-100 p-4 flex justify-between shadow">
+<!-- <div class="bg-base-100 p-4 flex justify-between shadow">
 <div class="job-contant space-y-4 ">
     <div>
         <h3 class="job-name font-bold text-xl">TechCorp Industries</h3>
@@ -200,12 +200,20 @@
 </div>
 <button class="delete-btn w-8 h-8 flex rounded-full border border-gray-200 text-[#64748B] p-2"><i class="fa-regular fa-trash-can"></i></button>
 </div>
+</section> -->
+
 </section>
-
-
 <!-- interview-job -->
 
 <section  id="interview-job" class="max-w-6xl my-6 mx-auto space-y-4 p-5 md:px-0 hidden">
+
+</section>
+<section  id="rejected-job" class="max-w-6xl my-6 mx-auto space-y-4 p-5 md:px-0 hidden">
+
+</section>
+
+<!-- empty section -->
+<section class="hidden">
 <div id="empty" class="bg-base-100 p-20 flex flex-col items-center justify-center shadow space-y-4">
 <div >
   <img src="image/empty.png" alt="empty-image">  
@@ -218,10 +226,8 @@
 </div>
 </section>
 
-
-
-
 </main>
- <script src="script.js"></script>   
+<script src="index.js"></script>
+ <!-- <script src="script.js"></script>    -->
 </body>
 </html>

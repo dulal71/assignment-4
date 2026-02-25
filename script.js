@@ -11,19 +11,20 @@ const interviewJob = document.getElementById("interview-job");
 const totalCount = document.getElementById("total");
 const totalInterview = document.getElementById("total-interview");
  const totalreject = document.getElementById("total-rejected");
- 
+ const totalAvailable = document.getElementById("total-available");
 function calculateCount(){
 totalCount.innerText=allJob.children.length;
 totalInterview.innerText=interviewList.length;
  totalreject.innerText=rejectList.length;
+ totalAvailable.innerText = allJob.children.length;
  
 }
 
  calculateCount();
 
 
-const totalAvailable = document.getElementById("total-available");
-totalAvailable.innerText = allJob.children.length;
+
+
 
 
 
@@ -70,7 +71,7 @@ reminderRejected();
   //  rejectedJob.classList.add("hidden");
     interviewJob.classList.add("hidden");
     allJob.classList.remove("hidden");
-   
+   totalAvailable.innerText = allJob.children.length;
  
 }
  
@@ -104,21 +105,19 @@ console.log(parentNode);
 const jobExist =  interviewList.find(job=> job.jobName=== jobInfo.jobName);
 if(!jobExist){
  interviewList.push(jobInfo);  
-
 }
+
+ 
 
   
 rejectList = rejectList.filter(job=> job.jobName != jobInfo.jobName)
+
 if(currentStatus ==='rejected-filter-btn'){
   reminderRejected();
 }
 
 calculateCount();
-if(interviewList.length!==0){
-   empty.classList.add("hidden");
-   console.log(interviewList.length);
-  }
- 
+
 
  }else if(event.target.classList.contains("btn-rejected-selected")){
       interviewJob.innerHTML=``;
@@ -144,17 +143,18 @@ const jobExist =  rejectList.find(job=> job.jobName === jobInfo.jobName);
 if(!jobExist){
    rejectList.push(jobInfo);  
   
-
-   
 }
+if(rejectList.length ==0){
+ empty.classList.remove("hidden"); 
+}
+ 
+
 interviewList =interviewList.filter(job=> job.jobName != jobInfo.jobName);
 if(currentStatus ==='interview-filter-btn'){
 reminderInterview();
 }
 calculateCount();
-if(rejectList.length!==0){
-   empty.classList.add("hidden");
-  }
+
 
   }
   
@@ -223,6 +223,17 @@ interviewJob.appendChild(div);
 
  }
 
+const empty = document.getElementById("empty");
+// function showEmpty(){
+// if(rejectList.length >0){
+//    empty.classList.add("hidden");
+//   }else {
+   
+// }
+// }
+
+
+
 
 allJob.addEventListener("click",function(event){
   if(event.target.classList.contains('delete-btn')){
@@ -232,3 +243,5 @@ allJob.addEventListener("click",function(event){
     calculateCount();
   }
 })
+
+
