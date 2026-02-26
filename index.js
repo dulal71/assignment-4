@@ -3,6 +3,11 @@ const allJob = document.getElementById('all-job');
 const interviewJob = document.getElementById("interview-job");
 const rejectedJob=document.getElementById("rejected-job");
 const emptyState= document.getElementById("empty");
+// total count
+const totalCount = document.getElementById("total");
+const totalInterview = document.getElementById("total-interview");
+const totalreject = document.getElementById("total-rejected");
+const available = document.getElementById('total-available');
 
 
 let currentStatus = "all";
@@ -11,9 +16,11 @@ const inActiveStyle = ['btn-soft', 'bg-white'];
 
 //  Toggle Button and get all tab button
 function toggleBtn(tab){ 
-                                          //id=all-btn //id="interview-btn"//rejected-btn
+   currentStatus = tab;  
+   console.log(currentStatus);
+                                       //id=all-btn //id="interview-btn"//rejected-btn
   const totaltabs = ['all','interview','rejected'];
-  currentStatus = tab;
+  
  for(const tabs of totaltabs){
     const tabName = document.getElementById( tabs + "-btn");
     console.log(tabName);
@@ -51,42 +58,12 @@ if(allJob.children.length < 1){
    emptyState.classList.remove("hidden");
  }
 }
-
+totalState();
 }
  
-
 toggleBtn(currentStatus);
 
-
-const totalCount = document.getElementById("total");
-const totalInterview = document.getElementById("total-interview");
-const totalreject = document.getElementById("total-rejected");
-const available = document.getElementById('total-available');
-
-// total count 
-function totalState(){
-   const countObject = {
-      all:allJob.children.length,
-      interview:interviewJob.children.length,
-      rejected:rejectedJob.children.length
-   };
-   totalCount.innerText=countObject['all'];
-   totalInterview.innerText=countObject['interview'];
-   totalreject.innerText=countObject['rejected'];
-   available.innerText=countObject[currentStatus];
-   if(countObject[currentStatus]<1){
-      emptyState.classList.remove("hidden");
-   }else{
-      emptyState.classList.add("hidden"); 
-   }
-
-}
- totalState();
-
-
-
-
- const mainContainer=document.getElementById("job-container");
+const mainContainer=document.getElementById("job-container");
  mainContainer.addEventListener("click",function(event){
 const clickElement=event.target;
 console.log(clickElement.parentNode.parentNode.parentNode);
@@ -112,4 +89,22 @@ cardParent.removeChild(card);
  totalState();
  })
 
- 
+ // total count 
+function totalState(){
+   const countObject = {
+      all:allJob.children.length,
+      interview:interviewJob.children.length,
+      rejected:rejectedJob.children.length
+   };
+   totalCount.innerText=countObject['all'];
+   totalInterview.innerText=countObject['interview'];
+   totalreject.innerText=countObject['rejected'];
+   available.innerText=countObject[currentStatus];
+   if(countObject[currentStatus]<1){
+      emptyState.classList.remove("hidden");
+   }else{
+      emptyState.classList.add("hidden"); 
+   }
+
+}
+totalState();
