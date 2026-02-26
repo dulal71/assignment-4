@@ -55,7 +55,20 @@ if i click button ,the event will bubble up to the parent element.
 answer:
 Event Delegation means instead of handling many child elements separately, we attach a single event listener to their parent element.
 It works through Event Bubbling.
+
 const mainContainer=document.getElementById("job-container");
  mainContainer.addEventListener("click",function(event)){
 const clickElement=event.target;
  }
+
+
+
+
+5. What is the difference between preventDefault() and stopPropagation() methods?
+
+preventDefault() :
+The preventDefault method is used to prevent the browser's default behavior associated with an event. For example, clicking on a link normally navigates to a new page, or submitting a form reloads the page. Using preventDefault stops these actions.
+
+
+stopPropagation()
+The stopPropagation method is used to stop the event from propagating to parent elements. This means the event will not bubble up or trickle down the DOM hierarchy, preventing parent or ancestor event handlers from being triggered.
